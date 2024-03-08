@@ -1,7 +1,16 @@
-import { Elysia } from "elysia";
+import { Elysia } from "elysia"
+import { cors } from "@elysiajs/cors"
+import TelegramBot from "node-telegram-bot-api"
+import { AppConfig } from "./constants/config/app.config"
+import { handleTelegramCommand } from "./handler"
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+new Elysia().use(cors())
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+const bot = new TelegramBot(AppConfig.TELEGRAM_BOT_TOKEN, {
+  polling: AppConfig.TELEGRAM_POLLING,
+})
+
+bot.on("message", (msg) => {
+  const chatId = msg.chat.id
+  handleTelegramCommand(bot, msg, chatId)
+})

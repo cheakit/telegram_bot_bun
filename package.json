@@ -2,14 +2,22 @@
   "name": "telegram_bot",
   "version": "1.0.50",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun --watch src/index.ts",
+    "start": "NODE_ENV=production bun src/index.ts",
+    "build": "bun build src/index.ts"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@elysiajs/cors": "^0.8.0",
+    "axios": "^1.6.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "elysia": "latest",
+    "node-telegram-bot-api": "^0.64.0"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@types/node-telegram-bot-api": "^0.64.3",
+    "bun-types": "latest",
+    "prettier": "^3.2.5"
   },
   "module": "src/index.js"
 }
