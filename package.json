@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "bun --watch src/index.ts",
     "start": "NODE_ENV=production bun src/index.ts",
-    "build": "bun build src/index.ts"
+    "build": "bun build ./src/index.ts --outdir ./build --target bun"
   },
   "dependencies": {
     "@elysiajs/cors": "^0.8.0",
