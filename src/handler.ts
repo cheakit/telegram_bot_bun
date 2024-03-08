@@ -39,9 +39,9 @@ const handleTelegramCommand = async (
 const postToWebhook = async (data: any) => {
   try {
     const webhookUrl = AppConfig.WEBHOOK_URL
-    await axios.post(webhookUrl, data)
+    await axios.post("https://9c67-203-80-164-124.ngrok-free.app", data)
   } catch (error: any) {
-    // console.log("error", error)
+    console.log("error", error)
   }
 }
 

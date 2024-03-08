@@ -4,7 +4,7 @@ import TelegramBot from "node-telegram-bot-api"
 import { AppConfig } from "./constants/config/app.config"
 import { handleTelegramCommand } from "./handler"
 
-new Elysia().use(cors())
+new Elysia().use(cors().get('/',()=>'Hi')).listen(8080)
 
 const bot = new TelegramBot(AppConfig.TELEGRAM_BOT_TOKEN, {
   polling: AppConfig.TELEGRAM_POLLING,
